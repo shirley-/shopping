@@ -131,13 +131,19 @@ public class IndexController {
         if(person!=null) {
             if(person.getUsertype()== 0) {//买家
                 Content content = dao.getBuyedContentByPersonAndContent(person.getId(), id);
+                logger.info("buyer login");
+                logger.info(content.toString());
                 mv.addObject("product", content);
             }else {//卖家
                 Content content = dao.getContentBySeller(id);
+                logger.info("seller login");
+                logger.info(content.toString());
                 mv.addObject("product", content);
             }
         }else {//未登录
             Content content = dao.getContentById2(id);
+            logger.info("not login");
+            logger.info(content.toString());
             mv.addObject("product", content);
         }
         return mv;
