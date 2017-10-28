@@ -98,20 +98,20 @@ public class IndexController {
                     if(listType.equals("1")) { //未购买
                         logger.info("un buy");
                         List<Content> contentList = dao.getUnBuyedContentsByPerson(user.getId());
-                        logger.info(contentList.toString());
+                        logger.info(contentList!=null?contentList.toString():"contentList:null");
                         mv.addObject("productList", contentList);
                     }
                 }else { //已购买
                     logger.info("buyed");
                     List<Content> contentList = dao.getBuyedContentsByPerson(user.getId());
-                    logger.info(contentList.toString());
+                    logger.info(contentList!=null?contentList.toString():"contentList:null");
                     mv.addObject("productList", contentList);
                 }
 
             }else {//1 seller
                 logger.info("seller");
                 List<Content> contentList = dao.getContentsBySeller();
-                logger.info(contentList.toString());
+                logger.info(contentList!=null?contentList.toString():"contentList:null");
                 mv.addObject("productList", contentList);
             }
 
@@ -125,25 +125,44 @@ public class IndexController {
     }
 
     @RequestMapping(value="/show", method = RequestMethod.GET)
-    public ModelAndView show(@RequestParam int id, HttpServletRequest request) {
+    public ModelAndView show(@RequestParam("id") int contentId, HttpServletRequest request) {
         ModelAndView mv = new ModelAndView("show");
         Person person = (Person)request.getSession().getAttribute("user");
         if(person!=null) {
             if(person.getUsertype()== 0) {//买家
-                Content content = dao.getBuyedContentByPersonAndContent(person.getId(), id);
-                logger.info("buyer login");
-                logger.info(content.toString());
-                mv.addObject("product", content);
+                Trx trx = dao.getTrxByContentId(contentId);
+                if(trx!=null) {//已购买
+                    Content content = dao.getBuyedContentByPersonAndContent(person.getId(), contentId);
+                    logger.info("buyer login");
+                    logger.info(content!=null?content.toString():"buyed content:null ->error");
+                    mv.addObject("product", content);
+                }else {//未购买
+                    Content content = dao.getContentById2( contentId);
+                    logger.info("buyer login");
+                    logger.info(content!=null?content.toString():"un buyed content:null ->error");
+                    mv.addObject("product", content);
+                }
+
+
             }else {//卖家
-                Content content = dao.getContentBySeller(id);
-                logger.info("seller login");
-                logger.info(content.toString());
-                mv.addObject("product", content);
+                Trx trx = dao.getTrxByContentId(contentId);
+                if(trx!=null) {//已卖出
+                    Content content = dao.getContentBySeller(contentId);
+                    logger.info("seller login");
+                    logger.info(content!=null?content.toString():"content:null");
+                    mv.addObject("product", content);
+                }else {//未卖出
+                    Content content = dao.getContentById2(contentId);
+                    logger.info("seller login");
+                    logger.info(content!=null?content.toString():"content:null");
+                    mv.addObject("product", content);
+                }
+
             }
         }else {//未登录
-            Content content = dao.getContentById2(id);
+            Content content = dao.getContentById2(contentId);
             logger.info("not login");
-            logger.info(content.toString());
+            logger.info(content!=null?content.toString():"content:null");
             mv.addObject("product", content);
         }
         return mv;

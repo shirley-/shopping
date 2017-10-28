@@ -49,8 +49,8 @@ public interface DBDao {
             " \'1\' as isBuy " +
             //" case when p.usertype=\'0\' then \'1\' else \'0\' end as isBuy, " +
             //" case when p.usertype=\'1\' then \'1\' else \'0\' end as isSell " +
-            " from trx t join content c join person p " +
-            " on t.contentId=c.id and t.personId = p.id " +
+            " from trx t join content c " +
+            " on t.contentId=c.id  " +
             " where t.personId = #{personId} ")
     @Results({
             @Result(column = "id",  property = "id" ),
@@ -76,8 +76,8 @@ public interface DBDao {
             "  t.time as buyTime," +
             "  t.num as buyNum," +
             " \'1\' as isBuy " +
-            " from trx t join content c join person p " +
-            " on t.contentId=c.id and t.personId = p.id " +
+            " from content c left join trx t  " +
+            " on t.contentId=c.id " +
             " where t.personId = #{personId} and t.contentId = #{contentId}")
     @Results({
             @Result(column = "id",  property = "id" ),
@@ -206,6 +206,9 @@ public interface DBDao {
             "values( #{trx.content.id}, #{trx.person.id}, #{trx.price}, #{trx.time}, #{trx.num} ) ")
     @Options(useGeneratedKeys = true, keyProperty = "trx.id")
     int insertTrx(@Param("trx") Trx trx) ;
+
+    @Select("select * from trx where contentId=#{contentId}")
+    Trx getTrxByContentId(int contentId);
 
     @Insert("insert into image(name, bytes) values( #{image.name}, #{image.bytes}) ")
     @Options(useGeneratedKeys = true, keyProperty = "image.id")
