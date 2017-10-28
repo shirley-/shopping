@@ -7,18 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e606c576-5cde-4800-be7e-22893f29fdc3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/netease/bean/Content.class" afterPath="$PROJECT_DIR$/target/classes/com/netease/bean/Content.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/netease/bean/Image.class" afterPath="$PROJECT_DIR$/target/classes/com/netease/bean/Image.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/netease/bean/Person.class" afterPath="$PROJECT_DIR$/target/classes/com/netease/bean/Person.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/netease/bean/ReturnResult.class" afterPath="$PROJECT_DIR$/target/classes/com/netease/bean/ReturnResult.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/netease/bean/Trx.class" afterPath="$PROJECT_DIR$/target/classes/com/netease/bean/Trx.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/netease/bean/UploadReturnResult.class" afterPath="$PROJECT_DIR$/target/classes/com/netease/bean/UploadReturnResult.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/netease/controller/BuyerController.class" afterPath="$PROJECT_DIR$/target/classes/com/netease/controller/BuyerController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/netease/controller/IndexController.class" afterPath="$PROJECT_DIR$/target/classes/com/netease/controller/IndexController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/netease/controller/SellerController.class" afterPath="$PROJECT_DIR$/target/classes/com/netease/controller/SellerController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/netease/dao/DBDao.class" afterPath="$PROJECT_DIR$/target/classes/com/netease/dao/DBDao.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/netease/controller/IndexController.java" afterPath="$PROJECT_DIR$/src/main/java/com/netease/controller/IndexController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" afterPath="$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -35,11 +25,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="IndexController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IndexController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/netease/controller/IndexController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
               <caret line="133" column="34" lean-forward="false" selection-start-line="133" selection-start-column="34" selection-end-line="133" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spring-mybatis.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="279">
+              <caret line="9" column="43" lean-forward="false" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -135,9 +135,9 @@
         <option value="$PROJECT_DIR$/src/main/webapp/template/publicSubmit.ftl" />
         <option value="$PROJECT_DIR$/src/main/webapp/template/settleAccount.ftl" />
         <option value="$PROJECT_DIR$/src/main/webapp/template/show.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/netease/controller/IndexController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" />
       </list>
     </option>
   </component>
@@ -1751,7 +1751,7 @@
       <workItem from="1509081814969" duration="10707000" />
       <workItem from="1509102626632" duration="4956000" />
       <workItem from="1509162290303" duration="5023000" />
-      <workItem from="1509186931028" duration="6787000" />
+      <workItem from="1509186931028" duration="6862000" />
     </task>
     <task id="LOCAL-00001" summary="root">
       <created>1509166131655</created>
@@ -1788,11 +1788,18 @@
       <option name="project" value="LOCAL" />
       <updated>1509197871533</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="show log">
+      <created>1509200872766</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1509200872766</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107456000" />
+    <option name="totallyTimeSpent" value="107531000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1830,7 +1837,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43586698" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938388" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22462203" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24784017" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="BPMNPalette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1918,7 +1925,8 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="root" />
     <MESSAGE value="log" />
-    <option name="LAST_COMMIT_MESSAGE" value="log" />
+    <MESSAGE value="show log" />
+    <option name="LAST_COMMIT_MESSAGE" value="show log" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2372,14 +2380,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="7" column="87" lean-forward="true" selection-start-line="7" selection-start-column="87" selection-end-line="7" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/netease/controller/BuyerController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1394">
@@ -2392,6 +2392,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="133" column="34" lean-forward="false" selection-start-line="133" selection-start-column="34" selection-end-line="133" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="9" column="43" lean-forward="false" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
           <folding />
         </state>
       </provider>
