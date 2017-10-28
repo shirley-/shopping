@@ -23,8 +23,12 @@
         <property name="templateLoaderPath" value="/template" />
         <property name="freemarkerSettings">
             <props>
+                <!-- 设置页面中文乱码问题 -->
+                <prop key="default_encoding">UTF-8</prop><!--模板的编码格式 -->
+                <prop key="locale">UTF-8</prop><!-- 本地化设置 -->
+                <prop key="url_escaping_charset">UTF-8</prop>
+
                 <prop key="template_update_delay">1</prop>
-                <prop key="default_encoding">UTF-8</prop>
                 <!--  <prop key="output_encoding">UTF-8</prop> --><!--  输出的字符集  -->
                 <prop key="locale">zh_CN</prop>
                 <prop key="number_format">0.##</prop>
