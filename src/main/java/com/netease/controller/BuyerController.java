@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * 控制器
@@ -29,6 +30,8 @@ public class BuyerController {
 
     @Autowired
     private DBDao dao;
+
+    private Logger logger = Logger.getLogger("buyer");;
 
     /**
      * 购买post
@@ -50,7 +53,7 @@ public class BuyerController {
             int id = Integer.parseInt(JSONObject.parseObject(arr.get(0).toString()).get("id").toString());
             Content content = dao.getContentById(id);
             Trx trx = new Trx( content, person, content.getPrice(), timeStr, num);
-            System.out.println(trx);
+            logger.info(trx.toString());
             int insertNum = dao.insertTrx(trx);//新增1交易记录
             if(insertNum!=1) {
                 flag=false;
@@ -85,7 +88,7 @@ public class BuyerController {
         Person persopn = (Person)request.getSession().getAttribute("user");
         ModelAndView mv = new ModelAndView("account");
         List<Content> contentList = dao.getBuyedContentsByPerson(persopn.getId());
-        System.out.println(contentList);
+        logger.info(contentList.toString());
         mv.addObject("buyList", contentList);
         return mv;
     }

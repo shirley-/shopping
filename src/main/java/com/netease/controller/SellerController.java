@@ -19,6 +19,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.logging.Logger;
 
 /**
  * 控制器
@@ -28,6 +29,8 @@ public class SellerController {
 
     @Autowired
     private DBDao dao;
+
+    private Logger logger = Logger.getLogger("seller");;
 
     /**
      * 进入发布页GET
@@ -62,7 +65,7 @@ public class SellerController {
         int num = dao.insertContent(content);
         if(num==1) {
             mv.addObject("product", content);
-            System.out.println("发布成功："+content);
+            logger.info("发布成功："+content);
         }
         return mv;
     }
@@ -77,7 +80,7 @@ public class SellerController {
     public ReturnResult delete(@RequestParam int id) {
         ReturnResult rr = new ReturnResult();
         int num = dao.deleteContentById(id);
-        System.out.println("delete: " + num);
+        logger.info("delete: " + num);
         if(num==1) {
             rr.setCode(200);
             rr.setResult(true);
@@ -126,7 +129,7 @@ public class SellerController {
         int num = dao.updateContent(content);
         if(num==1) {//成功更新一条内容
             mv.addObject("product", content);
-            System.out.println("提交成功："+content);
+            logger.info("提交成功："+content);
         }
         return mv;
     }
@@ -147,7 +150,7 @@ public class SellerController {
         if(num ==1) {
             urr.setCode(200);
             urr.setResult("/getImage?id="+image.getId());
-            System.out.println(urr);
+            logger.info(urr.toString());
         }
 
         return urr;

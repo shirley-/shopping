@@ -21,6 +21,7 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * 控制器
@@ -30,16 +31,18 @@ public class IndexController {
 
     @Autowired
     private DBDao dao;
+    
+    private Logger logger = Logger.getLogger("index");
 
     @RequestMapping(value="/login", method = RequestMethod.GET)
     public String login() {
-        System.out.println("/login");
+        logger.info("/login");
         return "login";
     }
 
     @RequestMapping(value="/logout", method = RequestMethod.GET)
     public String logout(HttpSession session) {
-        System.out.println("/logout");
+        logger.info("/logout");
         //session
         Person user = (Person) session.getAttribute("user");
         if(user!=null) {
@@ -54,15 +57,15 @@ public class IndexController {
     @ResponseBody
     public ReturnResult index(@RequestParam String userName, @RequestParam String password,
                               ModelMap map, HttpSession session) {
-        System.out.println("/api/login");
-        System.out.println( userName+" "+password );
+        logger.info("/api/login");
+        logger.info( userName+" "+password );
 
         List<Person> personList = dao.getPersons(userName);
         ReturnResult returnResult = new ReturnResult();
         if(personList.size()==1) {
             if(personList.get(0).getPassword().equals(password)) {
                 map.put("user", personList.get(0));
-                //System.out.println(personList.get(0));
+                //logger.info(personList.get(0));
                 returnResult.setCode(200);
                 returnResult.setMessage("登录成功");
                 returnResult.setResult(true);
@@ -77,14 +80,14 @@ public class IndexController {
             returnResult.setMessage("用户名错误");
             returnResult.setResult(false);
         }
-        System.out.println(returnResult);
+        logger.info(returnResult.toString());
         return returnResult;
     }
 
     @RequestMapping(value="/", method = RequestMethod.GET)
     public ModelAndView root(HttpSession session, HttpServletRequest request,
                             @RequestParam(value = "type", required = false) String listType) {
-        System.out.println("/");
+        logger.info("/");
         ModelAndView mv = new ModelAndView();
         mv.setViewName("index");
 
@@ -93,28 +96,28 @@ public class IndexController {
             if(user.getUsertype()== 0) {//buyer  已购买
                 if(listType!=null) {
                     if(listType.equals("1")) { //未购买
-                        System.out.println("un buy");
+                        logger.info("un buy");
                         List<Content> contentList = dao.getUnBuyedContentsByPerson(user.getId());
-                        System.out.println(contentList);
+                        logger.info(contentList.toString());
                         mv.addObject("productList", contentList);
                     }
                 }else { //已购买
-                    System.out.println("buyed");
+                    logger.info("buyed");
                     List<Content> contentList = dao.getBuyedContentsByPerson(user.getId());
-                    System.out.println(contentList);
+                    logger.info(contentList.toString());
                     mv.addObject("productList", contentList);
                 }
 
             }else {//1 seller
-                System.out.println("seller");
+                logger.info("seller");
                 List<Content> contentList = dao.getContentsBySeller();
-                System.out.println(contentList);
+                logger.info(contentList.toString());
                 mv.addObject("productList", contentList);
             }
 
         }else {
             List<Content> contentList = dao.getContents();
-            System.out.println(contentList.size());
+            logger.info(String.valueOf(contentList.size()));
             mv.addObject("productList", contentList);
         }
 
