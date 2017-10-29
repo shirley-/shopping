@@ -49,8 +49,8 @@ public class BuyerController {
         JSONArray arr = JSONArray.parseArray(jsonStr);
         boolean flag = true;
         for(int i=0;i<arr.size();i++) {//遍历每个商品
-            int num = Integer.parseInt(JSONObject.parseObject(arr.get(0).toString()).get("number").toString());
-            int id = Integer.parseInt(JSONObject.parseObject(arr.get(0).toString()).get("id").toString());
+            int num = Integer.parseInt(JSONObject.parseObject(arr.get(i).toString()).get("number").toString());
+            int id = Integer.parseInt(JSONObject.parseObject(arr.get(i).toString()).get("id").toString());
             Content content = dao.getContentById(id);
             Trx trx = new Trx( content, person, content.getPrice(), timeStr, num);
             logger.info(trx.toString());
