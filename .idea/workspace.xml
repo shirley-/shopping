@@ -7,9 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e606c576-5cde-4800-be7e-22893f29fdc3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/netease/controller/BuyerController.class" afterPath="$PROJECT_DIR$/target/classes/com/netease/controller/BuyerController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/netease/controller/IndexController.class" afterPath="$PROJECT_DIR$/target/classes/com/netease/controller/IndexController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/netease/controller/IndexController.java" afterPath="$PROJECT_DIR$/src/main/java/com/netease/controller/IndexController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sellingApp.iml" afterPath="$PROJECT_DIR$/sellingApp.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="465">
-              <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+              <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -60,7 +60,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/netease/controller/BuyerController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="124">
-              <caret line="51" column="63" lean-forward="true" selection-start-line="51" selection-start-column="63" selection-end-line="51" selection-end-column="63" />
+              <caret line="51" column="63" lean-forward="false" selection-start-line="51" selection-start-column="63" selection-end-line="51" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -1194,7 +1194,7 @@
       <workItem from="1509102626632" duration="4956000" />
       <workItem from="1509162290303" duration="5023000" />
       <workItem from="1509186931028" duration="7545000" />
-      <workItem from="1509230819778" duration="4851000" />
+      <workItem from="1509230819778" duration="4899000" />
     </task>
     <task id="LOCAL-00001" summary="root">
       <created>1509166131655</created>
@@ -1266,11 +1266,18 @@
       <option name="project" value="LOCAL" />
       <updated>1509240522460</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="修复首页 买家 显示所有">
+      <created>1509241305213</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1509241305213</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113065000" />
+    <option name="totallyTimeSpent" value="113113000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1400,7 +1407,8 @@
     <MESSAGE value="sa" />
     <MESSAGE value="show" />
     <MESSAGE value="购物车bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="购物车bug" />
+    <MESSAGE value="修复首页 买家 显示所有" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复首页 买家 显示所有" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1832,7 +1840,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
-          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -1848,7 +1856,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/netease/controller/BuyerController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
-          <caret line="51" column="63" lean-forward="true" selection-start-line="51" selection-start-column="63" selection-end-line="51" selection-end-column="63" />
+          <caret line="51" column="63" lean-forward="false" selection-start-line="51" selection-start-column="63" selection-end-line="51" selection-end-column="63" />
           <folding />
         </state>
       </provider>
