@@ -101,9 +101,11 @@ public class IndexController {
                         logger.info(contentList!=null?contentList.toString():"contentList:null");
                         mv.addObject("productList", contentList);
                     }
-                }else { //已购买
+                }else { //已购买+未购买
                     logger.info("buyed");
                     List<Content> contentList = dao.getBuyedContentsByPerson(user.getId());
+                    List<Content> contentList2= dao.getUnBuyedContentsByPerson(user.getId());
+                    contentList.addAll(contentList2);
                     logger.info(contentList!=null?contentList.toString():"contentList:null");
                     mv.addObject("productList", contentList);
                 }
