@@ -16,6 +16,11 @@ import java.util.List;
  */
 @Repository
 public interface DBDao {
+    /**
+     * 根据用户名username查找用户
+     * @param username
+     * @return
+     */
     @Select("select * from person where userName=#{username} ")
     @Results({
             @Result(id = true, column = "id", property = "id"),
@@ -26,6 +31,10 @@ public interface DBDao {
     })
     List<Person> getPersons(String username);
 
+    /**
+     * 获取所有商品内容
+     * @return
+     */
     @Select("select * from content ")
     @Results({
             @Result(id=true, column = "id",  property = "id" ),
@@ -37,6 +46,11 @@ public interface DBDao {
     })
     List<Content> getContents();
 
+    /**
+     * 根据用户Id，获取已购买的商品详情+交易记录
+     * @param personId
+     * @return
+     */
     @Select("select t.price as buyPrice, " +
             " c.title as title," +
             " c.icon as icon," +
@@ -65,7 +79,12 @@ public interface DBDao {
     })
     List<Content> getBuyedContentsByPerson(int personId);
 
-
+    /**
+     * 根据用户Id，商品Id，获取已购买的商品详情+交易记录
+     * @param personId
+     * @param contentId
+     * @return
+     */
     @Select("select t.price as buyPrice, " +
             " c.title as title," +
             " c.icon as icon," +
@@ -92,6 +111,11 @@ public interface DBDao {
     })
     Content getBuyedContentByPersonAndContent(@Param("personId") int personId, @Param("contentId") int contentId);
 
+    /**
+     * 根据用户Id，获取未购买商品详情
+     * @param personId
+     * @return
+     */
     @Select("select c.id as id , " +
             " c.price as price, " +
             " c.title as title, "+
@@ -113,7 +137,11 @@ public interface DBDao {
     })
     List<Content> getUnBuyedContentsByPerson(int personId);
 
-
+    /**
+     * 根据卖家获取商品详情
+     * @param contentId
+     * @return
+     */
     @Select("select c.id, " +
             " c.price," +
             " c.title, " +
@@ -135,7 +163,10 @@ public interface DBDao {
     })
     Content getContentBySeller(int contentId);
 
-
+    /**
+     * 获取卖家所有商品详情
+     * @return
+     */
     @Select("select c.id, " +
             " c.price," +
             " c.title, " +
@@ -156,7 +187,11 @@ public interface DBDao {
     })
     List<Content> getContentsBySeller();
 
-
+    /**
+     * 根据商品Id获取商品
+     * @param contentId
+     * @return
+     */
     @Select("select * from content where id=#{contentId}")
     @Results({
             @Result(id=true, column = "id",  property = "id" ),
@@ -168,6 +203,11 @@ public interface DBDao {
     })
     Content getContentById(int contentId);
 
+    /**
+     * 获取所有商品，已购买的带购买数量
+     * @param contentId
+     * @return
+     */
     @Select("select c.id as id , " +
             " c.price as price ," +
             " c.title as title," +
@@ -188,33 +228,66 @@ public interface DBDao {
     })
     Content getContentById2(int contentId);
 
+    /**
+     * 新增商品
+     * @param content
+     * @return
+     */
     @Insert("insert into content(price, title, icon, abstract, text) " +
             "values( #{content.price}, #{content.title}, #{content.image}, #{content.summary}, #{content.detail} ) ")
     @Options(useGeneratedKeys = true, keyProperty = "content.id")
     int insertContent(@Param("content") Content content) ;
 
+    /**
+     * edit修改商品
+     * @param content
+     * @return
+     */
     @Update("update content set price=#{content.price}, title=#{content.title}, " +
             " icon=#{content.image}, abstract=#{content.summary}, text=#{content.detail} " +
             " where id = #{content.id} " )
     int updateContent(@Param("content") Content content) ;
 
-
+    /**
+     * 删除Id的商品
+     * @param contentId
+     * @return
+     */
     @Delete("delete from content where id=#{contentId}")
     int deleteContentById(int contentId);
 
+    /**
+     * 在购物车购买商品，新增交易
+     * @param trx
+     * @return
+     */
     @Insert("insert into trx(contentId, personId, price, time, num) " +
             "values( #{trx.content.id}, #{trx.person.id}, #{trx.price}, #{trx.time}, #{trx.num} ) ")
     @Options(useGeneratedKeys = true, keyProperty = "trx.id")
     int insertTrx(@Param("trx") Trx trx) ;
 
+    /**
+     * 获取id商品交易记录
+     * @param contentId
+     * @return
+     */
     @Select("select * from trx where contentId=#{contentId}")
     Trx getTrxByContentId(int contentId);
 
+    /**
+     * 上传图片
+     * @param image
+     * @return
+     */
     @Insert("insert into image(name, bytes) values( #{image.name}, #{image.bytes}) ")
     @Options(useGeneratedKeys = true, keyProperty = "image.id")
     int insertImage(@Param("image") Image image) ;
 
-
+    /**
+     * 取得图片
+     * @param id
+     * @return
+     */
     @Select("select * from image where id=#{id}")
     @Results({
             @Result(id = true, column = "id", property = "id"),

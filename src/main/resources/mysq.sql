@@ -1,4 +1,5 @@
 #mysql.sql 数据库netease建表
+#商品内容
 CREATE TABLE `content` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `price` bigint(20) DEFAULT NULL COMMENT '当前价格',
@@ -9,6 +10,7 @@ CREATE TABLE `content` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
+#上传图片
 CREATE TABLE `image` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
@@ -16,6 +18,7 @@ CREATE TABLE `image` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
+#买家 卖家
 CREATE TABLE `person` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `userName` varchar(100) DEFAULT NULL COMMENT '用户名',
@@ -27,6 +30,7 @@ CREATE TABLE `person` (
 
 INSERT INTO `person` VALUES (0,'buyer','37254660e226ea65ce6f1efd54233424','buyer',0),(1,'seller','981c57a5cfb0f868e064904b8745766f','seller',1);
 
+#商品交易记录
 CREATE TABLE `trx` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `contentId` int(11) DEFAULT NULL COMMENT '内容ID',
